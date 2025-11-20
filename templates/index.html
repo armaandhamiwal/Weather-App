@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <h1>🌤 Weather App</h1>
+    <form action="/" method="POST" class="search-box">
+      <input type="text" name="city" placeholder="Enter city name..." required>
+      <button type="submit" class="search-btn">Search</button>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-container">
+      {% for category, message in messages %}
+      <div class="flash-message {{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    {% if latest_weather %}
+    <div class="weather-card">
+      <h2>{{ latest_weather.city }}</h2>
+      <img src="http://openweathermap.org/img/wn/{{ latest_weather.icon }}@2x.png" alt="icon">
+      <p>🌡 Temperature: {{ latest_weather.temperature }}°C</p>
+      <p>🌥 Weather: {{ latest_weather.weather }}</p>
+      <p>💧 Humidity: {{ latest_weather.humidity }}%</p>
+      <p>💨 Wind Speed: {{ latest_weather.wind_speed }} m/s</p>
+      <p>📈 Pressure: {{ latest_weather.pressure }} hPa</p>
+    </div>
+    {% endif %}
+
+    {% if history %}
+    <h3>Recent Searches</h3>
+    <div class="history">
+      {% for item in history %}
+      <div class="history-card">
+        <p>{{ item.city }} — {{ item.temperature }}°C | {{ item.weather }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+
+  <footer>
+    <p>Made with ❤️ by <b>Armaan Dhamiwal</b></p>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #8ec5fc, #e0c3fc);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #fff;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #fff;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-btn {
+    background-color: #0056d6;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #003f9e;
+}
+
+.delete-form {
+    margin-top: 10px;
+}
+
+.delete-btn {
+    background-color: #ff5252;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-weight: bold;
+}
+
+.delete-btn:hover {
+    background-color: #c70000;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.weather-card {
+    background: rgba(255, 255, 255, 0.25);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s, background 0.3s;
+}
+
+.weather-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.weather-card h3 {
+    margin: 0;
+    color: #fff;
+}
+
+.weather-card .temp {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.weather-card .condition {
+    text-transform: capitalize;
+}
+
+.weather-card .humidity {
+    color: #dff9fb;
+    font-size: 0.9em;
+}
+
+
+.no-history {
+    margin-top: 15px;
+    color: #f1f1f1;
+    font-style: italic;
+}
+
+footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 14px;
+    color: #ffffffb2;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer strong {
+    color: #ffccff;
+}
+
+.flash-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.flash-message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-weight: 500;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: slideInRight 0.4s ease, fadeOut 4s ease forwards;
+}
+
+.flash-message.success { background-color: #28a745; }  /* ✅ Green */
+.flash-message.error { background-color: #e74c3c; }    /* ❌ Red */
+.flash-message.info { background-color: #3498db; }     /* ℹ️ Blue */
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.3);
+}
+
+/* ✨ Animations */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  0%, 80% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(50px); }
+}
+.main-card {
+  background: linear-gradient(135deg, #56ccf2, #2f80ed);
+  padding: 25px;
+  border-radius: 15px;
+  color: white;
+  margin-top: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.recent-title {
+  margin-top: 25px;
+  font-size: 1.4rem;
+  color: #fff;
+  text-align: left;
+}
+
+.recent-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.small-card {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.9em;
+  text-align: center;
+}
+.main-card {
+  background: linear-gradient(135deg, #56ccf2, #2f80ed);
+  padding: 25px;
+  border-radius: 15px;
+  color: white;
+  margin-top: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.recent-title {
+  margin-top: 25px;
+  font-size: 1.4rem;
+  color: #fff;
+  text-align: left;
+}
+
+.recent-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.small-card {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.9em;
+  text-align: center;
+}
+.location-btn {
+  margin-top: 10px;
+  background-color: #2ecc71;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.location-btn:hover {
+  background-color: #27ae60;
+}
